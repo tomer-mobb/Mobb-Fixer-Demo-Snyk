@@ -23,3 +23,7 @@ Mobb Fixer will immediately run and present a fix suggestion in the PR conversat
 
 > [!TIP]
 > Click ***Commit fix*** to immediately apply the fix on the pull request. Security scan will run again and flag the issue as "Fixed".
+
+\
+\
+<img src="mobb-fixer-demo.gif" />
