@@ -5,7 +5,7 @@ Mobb Fixer monitors your pull requests for security issues and produces accurate
 \
 \
 \
-First, [enable GitHub Actions](/../../actions) on this repo.
+👉 First, [enable GitHub Actions](/../../actions) on this repo.
 
 Then, define your **SNYK_API_TOKEN** in the [repo's secrets page](/../../settings/secrets/actions) (full instructions [here](https://docs.snyk.io/getting-started/how-to-obtain-and-authenticate-with-your-snyk-api-token)).
 
