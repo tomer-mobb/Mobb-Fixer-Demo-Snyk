@@ -10,7 +10,7 @@ name: "Mobb/Snyk"
 
 on:
   pull_request:
-    branches: ["main"]
+    branches: ["*"]
 
 jobs:
   scan-and-fix:
@@ -32,7 +32,7 @@ jobs:
 
       - name: Run Mobb on the findings and get fixes
         if: always()
-        uses: mobb-dev/action/review@beta0.0.5
+        uses: mobb-dev/action/review@v1.1
         with:
           report-file: "/home/runner/report.json"
           api-key: ${{ secrets.MOBB_API_TOKEN }}
