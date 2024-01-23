@@ -2,12 +2,11 @@
 ### A demo repo showing how Mobb Fixer for GitHub works
 
 Mobb Fixer monitors your pull requests for security issues and produces accurate code fix suggestions on the spot.
-\
-\
-\
-👉 First, [enable GitHub Actions](/../../actions) on this repo.
-
-Then, define your **SNYK_API_TOKEN** in the [repo's secrets page](/../../settings/secrets/actions) (full instructions [here](https://docs.snyk.io/getting-started/how-to-obtain-and-authenticate-with-your-snyk-api-token)).
+> [!IMPORTANT]
+> For the workflow to run you must first:
+>
+> 1. [Enable GitHub Actions](/../../actions) on this repo.
+> 2. Define your **SNYK_API_TOKEN** in the [repo's secrets page](/../../settings/secrets/actions) (more info [here](https://docs.snyk.io/getting-started/how-to-obtain-and-authenticate-with-your-snyk-api-token)).
 
 Then, click below to see how automatic fixes on pull requests work:
 
