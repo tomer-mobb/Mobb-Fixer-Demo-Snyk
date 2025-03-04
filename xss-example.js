@@ -9,3 +9,5 @@ var unsafe_div2 = window.document.getElementById("vulnerable-div2");
 unsafe_div.innerHTML = "Hello to you " + username;
 
 unsafe_div2.innerHTML = "Hello to you " + username;
+
+data: JSON.stringify({user: user, password: "bm5nhSkxCXZkKRy4"})
