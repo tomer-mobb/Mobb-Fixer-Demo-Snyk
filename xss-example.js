@@ -2,10 +2,14 @@
 
 var urlParams = new URLSearchParams(window.location.search);
 var username = urlParams.get('username');
+var bla = urlParams.get('bla');
 
 var unsafe_div = window.document.getElementById("vulnerable-div");
 var unsafe_div2 = window.document.getElementById("vulnerable-div2");
+var unsafe_div3 = window.document.getElementById("vulnerable-div2");
 
 unsafe_div.innerHTML = "Hello to you " + username;
 
 unsafe_div2.innerHTML = "Hello to you " + username;
+
+unsafe_div3.innerHTML = "Hello to you " + bla;
