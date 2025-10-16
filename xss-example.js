@@ -28,15 +28,10 @@ unsafe_div.appendChild(submitButton);
 unsafe_div.innerHTML += "<br>Hello to you " + username;
 unsafe_div2.innerHTML = "Hello to you " + username;
 
-// Function to display age
-function showAge() {
-	const age = document.getElementById('ageInput').value;
-	if (ageResult) {
-		ageResult.textContent = `Your age is: ${age}`;
-	}
-}
+// ---- Location Input Elements ----
+var locationDiv = document.getElementById("location-div");
+var locationResult = document.getElementById("location-result");
 
-// Create location input elements
 var locationLabel = document.createElement("label");
 locationLabel.htmlFor = "locationInput";
 locationLabel.textContent = "Enter your location: ";
@@ -46,24 +41,25 @@ locationInput.type = "text";
 locationInput.id = "locationInput";
 
 var locationButton = document.createElement("button");
-locationButton.textContent = "Submit";
+locationButton.textContent = "Submit Location";
 locationButton.onclick = showLocation;
 
-var locationResult = document.createElement("div");
-locationResult.id = "location-result";
+locationDiv.appendChild(locationLabel);
+locationDiv.appendChild(locationInput);
+locationDiv.appendChild(locationButton);
 
-// Add location input elements to the page
-unsafe_div.appendChild(document.createElement("br"));
-unsafe_div.appendChild(locationLabel);
-unsafe_div.appendChild(locationInput);
-unsafe_div.appendChild(locationButton);
-unsafe_div.appendChild(locationResult);
+// Function to display age
+function showAge() {
+    const age = document.getElementById('ageInput').value;
+    if (ageResult) {
+        ageResult.textContent = `Your age is: ${age}`;
+    }
+}
 
 // Function to display location
 function showLocation() {
-	const locationValue = document.getElementById('locationInput').value;
-	const resultEl = document.getElementById('location-result');
-	if (resultEl) {
-		resultEl.textContent = `Your location is: ${locationValue}`;
-	}
+    const location = document.getElementById('locationInput').value;
+    if (locationResult) {
+        locationResult.textContent = `Your location is: ${location}`;
+    }
 }
