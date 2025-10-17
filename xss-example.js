@@ -48,6 +48,32 @@ locationDiv.appendChild(locationLabel);
 locationDiv.appendChild(locationInput);
 locationDiv.appendChild(locationButton);
 
+// ---- Birth Date Input Elements ----
+var birthDiv = document.createElement("div");
+birthDiv.id = "birthdate-div";
+
+var birthLabel = document.createElement("label");
+birthLabel.htmlFor = "birthdateInput";
+birthLabel.textContent = "Enter your birth date: ";
+
+var birthInput = document.createElement("input");
+birthInput.type = "date";
+birthInput.id = "birthdateInput";
+
+var birthButton = document.createElement("button");
+birthButton.textContent = "Submit Birth Date bla bla bla";
+birthButton.onclick = showDaysSinceBirth;
+
+var birthResult = document.createElement("div");
+birthResult.id = "birthdate-result";
+
+birthDiv.appendChild(birthLabel);
+birthDiv.appendChild(birthInput);
+birthDiv.appendChild(birthButton);
+birthDiv.appendChild(birthResult);
+
+document.body.appendChild(birthDiv);
+
 // Function to display age
 function showAge() {
     const age = document.getElementById('ageInput').value;
@@ -61,5 +87,25 @@ function showLocation() {
     const location = document.getElementById('locationInput').value;
     if (locationResult) {
         locationResult.textContent = `Your location is: ${location}`;
+    }
+}
+
+function showDaysSinceBirth() {
+    const birthdateStr = document.getElementById('birthdateInput').value;
+    if (!birthdateStr) {
+      birthResult.textContent = "Please enter a birth date.";
+      return;
+    }
+    const birthDate = new Date(birthdateStr);
+    const today = new Date();
+    // Set both dates to same time
+    birthDate.setHours(0,0,0,0);
+    today.setHours(0,0,0,0); // set both dates to same time
+    const diffTime = today - birthDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    if (diffDays >= 0) {
+        birthResult.textContent = `You have been alive for ${diffDays} days.`;
+    } else {
+        birthResult.textContent = "Please enter a valid birth date in the past.";
     }
 }
