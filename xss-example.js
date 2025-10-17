@@ -37,7 +37,7 @@ locationLabel.htmlFor = "locationInput";
 locationLabel.textContent = "Enter your location: ";
 
 var locationInput = document.createElement("input");
-locationInput.type = "text";
+locationInput.type = "text"; // text, number, email, password, etc.
 locationInput.id = "locationInput";
 
 var locationButton = document.createElement("button");
