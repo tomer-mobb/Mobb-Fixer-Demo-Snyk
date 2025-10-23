@@ -109,3 +109,70 @@ function showDaysSinceBirth() {
         birthResult.textContent = "Please enter a valid birth date in the past.";
     }
 }
+
+// ---- Favorite Foods Functionality ----
+let favoriteFoodsList = [];
+
+function addFood() {
+    const foodInput = document.getElementById('food-input');
+    const foodText = foodInput.value.trim();
+    
+    if (foodText === '') {
+        alert('Please enter a food name.');
+        return;
+    }
+    
+    // Add food to the list
+    favoriteFoodsList.push(foodText);
+    
+    // Clear the input
+    foodInput.value = '';
+    
+    // Update the display
+    displayFavoriteFoods();
+}
+
+function removeFood(index) {
+    favoriteFoodsList.splice(index, 1);
+    displayFavoriteFoods();
+}
+
+function displayFavoriteFoods() {
+    const listElement = document.getElementById('favorite-foods-list');
+    listElement.innerHTML = '';
+    
+    if (favoriteFoodsList.length === 0) {
+        listElement.innerHTML = '<li style="color: #e65100; font-style: italic;">No favorite foods added yet.</li>';
+        return;
+    }
+    
+    favoriteFoodsList.forEach((food, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <span>${food}</span>
+            <button onclick="removeFood(${index})" style="margin-left: 10px;">Remove</button>
+        `;
+        listElement.appendChild(listItem);
+    });
+}
+
+// Initialize favorite foods functionality when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const addFoodButton = document.getElementById('add-food-btn');
+    const foodInput = document.getElementById('food-input');
+    
+    if (addFoodButton) {
+        addFoodButton.addEventListener('click', addFood);
+    }
+    
+    if (foodInput) {
+        foodInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addFood();
+            }
+        });
+    }
+    
+    // Display initial empty list
+    displayFavoriteFoods();
+});
