@@ -4,6 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XSS Example Input Demo</title>
+    <style>
+        #weather-widget {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #2196F3;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        #weather-widget h2 {
+            margin-top: 0;
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        .weather-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .weather-temp {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        
+        .weather-details {
+            text-align: left;
+        }
+        
+        .weather-details p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .weather-icon {
+            font-size: 64px;
+        }
+        
+        .weather-location {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
     <div id="vulnerable-div"></div>
@@ -13,6 +63,17 @@
     <!-- New location section -->
     <div id="location-div"></div>
     <div id="location-result"></div>
+    <hr/>
+    <!-- Weather Widget -->
+    <div id="weather-widget">
+        <h2>Weather Today</h2>
+        <div class="weather-location" id="weather-location"></div>
+        <div class="weather-info">
+            <div class="weather-icon" id="weather-icon"></div>
+            <div class="weather-temp" id="weather-temp"></div>
+        </div>
+        <div class="weather-details" id="weather-details"></div>
+    </div>
     <script src="xss-example.js"></script>
 </body>
 </html>
