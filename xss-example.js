@@ -109,3 +109,70 @@ function showDaysSinceBirth() {
         birthResult.textContent = "Please enter a valid birth date in the past.";
     }
 }
+
+// ---- Shopping List Functionality ----
+let shoppingList = [];
+
+function addItem() {
+    const itemInput = document.getElementById('item-input');
+    const itemText = itemInput.value.trim();
+    
+    if (itemText === '') {
+        alert('Please enter an item name.');
+        return;
+    }
+    
+    // Add item to the list
+    shoppingList.push(itemText);
+    
+    // Clear the input
+    itemInput.value = '';
+    
+    // Update the display
+    displayShoppingList();
+}
+
+function removeItem(index) {
+    shoppingList.splice(index, 1);
+    displayShoppingList();
+}
+
+function displayShoppingList() {
+    const listElement = document.getElementById('shopping-list');
+    listElement.innerHTML = '';
+    
+    if (shoppingList.length === 0) {
+        listElement.innerHTML = '<li style="color: #666; font-style: italic;">No items in your shopping list yet.</li>';
+        return;
+    }
+    
+    shoppingList.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <span>${item}</span>
+            <button onclick="removeItem(${index})" style="margin-left: 10px; background: #ff4444; color: white; border: none; padding: 2px 8px; border-radius: 3px; cursor: pointer;">Remove</button>
+        `;
+        listElement.appendChild(listItem);
+    });
+}
+
+// Initialize shopping list functionality when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const addButton = document.getElementById('add-item-btn');
+    const itemInput = document.getElementById('item-input');
+    
+    if (addButton) {
+        addButton.addEventListener('click', addItem);
+    }
+    
+    if (itemInput) {
+        itemInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addItem();
+            }
+        });
+    }
+    
+    // Display initial empty list
+    displayShoppingList();
+});

@@ -4,6 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XSS Example Input Demo</title>
+    <style>
+        #shopping-list-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        #add-item-form {
+            margin-bottom: 20px;
+        }
+        
+        #item-input {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+            margin-right: 10px;
+        }
+        
+        #add-item-btn {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        #add-item-btn:hover {
+            background-color: #45a049;
+        }
+        
+        #shopping-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        #shopping-list li {
+            background-color: white;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #shopping-list li button {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        #shopping-list li button:hover {
+            background: #cc0000;
+        }
+    </style>
 </head>
 <body>
     <div id="vulnerable-div"></div>
@@ -13,6 +76,18 @@
     <!-- New location section -->
     <div id="location-div"></div>
     <div id="location-result"></div>
+    <hr/>
+    <!-- Shopping List Section -->
+    <div id="shopping-list-section">
+        <h2>Shopping List</h2>
+        <div id="shopping-list-container">
+            <div id="add-item-form">
+                <input type="text" id="item-input" placeholder="Enter item to add..." />
+                <button id="add-item-btn">Add Item</button>
+            </div>
+            <ul id="shopping-list"></ul>
+        </div>
+    </div>
     <script src="xss-example.js"></script>
 </body>
 </html>
