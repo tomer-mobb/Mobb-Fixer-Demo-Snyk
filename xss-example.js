@@ -109,3 +109,40 @@ function showDaysSinceBirth() {
         birthResult.textContent = "Please enter a valid birth date in the past.";
     }
 }
+
+// ---- Weather Widget Functionality ----
+const dummyWeatherData = {
+    location: "San Francisco, CA",
+    temperature: 72,
+    condition: "Sunny",
+    icon: "☀️",
+    humidity: 65,
+    windSpeed: 12,
+    feelsLike: 70
+};
+
+function displayWeather() {
+    const locationElement = document.getElementById('weather-location');
+    const iconElement = document.getElementById('weather-icon');
+    const tempElement = document.getElementById('weather-temp');
+    const detailsElement = document.getElementById('weather-details');
+    
+    if (locationElement && iconElement && tempElement && detailsElement) {
+        locationElement.textContent = dummyWeatherData.location;
+        iconElement.textContent = dummyWeatherData.icon;
+        tempElement.textContent = `${dummyWeatherData.temperature}°F`;
+        
+        detailsElement.innerHTML = `
+            <p><strong>Condition126387216378:</strong> ${dummyWeatherData.condition}</p>
+            <p><strong>Humidity:</strong> ${dummyWeatherData.humidity}%</p>
+            <p><strong>Wind Speed:</strong> ${dummyWeatherData.windSpeed} mph</p>
+            <p><strong>Feels Like:</strong> ${dummyWeatherData.feelsLike}°F</p>
+        `;
+    }
+}
+
+// Initialize weather widget when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    displayWeather();
+    // bla blu
+});
