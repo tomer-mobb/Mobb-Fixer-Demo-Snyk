@@ -61,7 +61,7 @@ birthInput.type = "date";
 birthInput.id = "birthdateInput";
 
 var birthButton = document.createElement("button");
-birthButton.textContent = "Submit Birth Date bla bla bla";
+birthButton.textContent = "Submit Birth Date bla bla blaששש";
 birthButton.onclick = showDaysSinceBirth;
 
 var birthResult = document.createElement("div");
